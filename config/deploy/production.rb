@@ -6,6 +6,14 @@ set :branch, "master"
 # need to create entries in your local Hosts file for testing.
 set :server_name, "rails1.bmaas.de"
 
+# set ssh options
+set :ssh_options, {
+  keys: %w(/Users/benny/.ssh/id_rsa),
+  forward_agent: true,
+  port: 4412,
+  auth_methods: %w(publickey)
+}
+
 # used in case we're deploying multiple versions of the same
 # app side by side. Also provides quick sanity checks when looking
 # at filepaths
