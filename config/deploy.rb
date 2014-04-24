@@ -13,10 +13,11 @@ set :rbenv_map_bins, %w{rake gem bundle ruby rails}
 
 # set ssh options
 set :ssh_options, {
-  forward_agent: true,
-  port: 4412
+  keys: %w(/Users/benny/.ssh/id_rsa),
+  forward_agent: false,
+  port: 4412,
+  auth_methods: %w(publickey)
 }
-
 # how many old releases do we want to keep, not much
 set :keep_releases, 5
 
