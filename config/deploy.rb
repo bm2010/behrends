@@ -1,15 +1,21 @@
-set :application, 'app_name'
-set :deploy_user, 'deploy'
+set :application, 'behrends'
+set :deploy_user, 'bennymaas'
 
 # setup repo details
 set :scm, :git
-set :repo_url, 'git@github.com:username/repo.git'
+set :repo_url, 'git@github.com:bm2010/behrends.git'
 
 # setup rvm.
-set :rbenv_type, :system
+set :rbenv_type, :user
 set :rbenv_ruby, '2.1.1'
 set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} #{fetch(:rbenv_path)}/bin/rbenv exec"
 set :rbenv_map_bins, %w{rake gem bundle ruby rails}
+
+# set ssh options
+set :ssh_options, {
+  forward_agent: true,
+  port: 4412
+}
 
 # how many old releases do we want to keep, not much
 set :keep_releases, 5
